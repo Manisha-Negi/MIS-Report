@@ -13,7 +13,7 @@ listOfEmailIds = ['manishanegi151296@gmail.com', 'rohitcrk1@gmail.com']
 to = listOfEmailIds
 
 def WriteToExcel():
-    conn = cx_Oracle.connect('CONSULTIT/Alpha1234@XePDB1')
+    conn = cx_Oracle.connect(username/password@localhost')
     df = pd.read_sql("""SELECT * FROM TPARAKSHA.KMD_DAILY_CASHLESS@rds""", conn)
     # Create a Pandas Excel writer using XlsxWriter as the engine.
     writer = pd.ExcelWriter(os.path.join(path_xl, "MIS.xlsx"), engine='xlsxwriter')
@@ -70,21 +70,19 @@ def SendEmail():
 
         # Step 4 - Declare SMTP credentials
 
-        password = "info#@5164"
+        password = "yourpassword"
 
-        username = "info"
+        username = "yourusername"
 
-        # smtphost = "mailx.rakshamail.com:587"   #initially this was used...as host
+        #initially this was used...as host
 
-        smtphost = "mailx.rakshamail.com:587"
+        smtphost = "smtp.gmail.com:587"
 
         # Step 5 - Declare message elements
 
         msg['From'] = "info@rakshatpa.com"
 
         msg['To'] = ','.join(to)
-
-        msg['Cc'] = ','.join(to1)
 
         msg['Subject'] = 'MIS REPORT'
 
